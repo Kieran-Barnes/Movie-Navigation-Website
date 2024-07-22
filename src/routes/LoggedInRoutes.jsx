@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom"
 // import components
 import HomepageLoggedInPage from "../components/pages/HomepageLoggedInPage"
 
-export default function HomepageLoggedInRoutes() {
+export default function LoggedInRoutes() {
     return (
         <>
             <Routes>

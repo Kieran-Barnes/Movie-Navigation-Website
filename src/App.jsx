@@ -1,6 +1,6 @@
 // import route components
-import HomepageLoggedInRoutes from "./routes/HomepageLoggedInRoutes"
-import HomepageLoggedOutRoutes from "./routes/HomepageLoggedOutRoutes"
+import LoggedInRoutes from "./routes/LoggedInRoutes"
+import LoggedOutRoutes from "./routes/LoggedOutRoutes"
 
 // import context 
 import { UserContext } from "./context/UserContext"
@@ -13,9 +13,9 @@ export default function App() {
   return (
     <>
       {userLoggedIn ? (
-          <HomepageLoggedInRoutes />
+          <LoggedInRoutes />
         ) : (
-          <HomepageLoggedOutRoutes />
+          <LoggedOutRoutes />
         )
       }
       
