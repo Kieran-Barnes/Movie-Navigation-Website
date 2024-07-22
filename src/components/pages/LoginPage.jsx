@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
 
 export default function LoginPage() {
@@ -9,7 +10,7 @@ export default function LoginPage() {
                 <UsernamePasswordInputField tagPrefix={'login-password'} labelName={'Password'} inputType={'password'} />
                 <button type="submit">Log in</button>
             </form>
-            <p>Dont have an account? Sign up</p>
+            <p>Dont have an account? <Link to="/signup">Sign up</Link></p>
         </>
     )
 }

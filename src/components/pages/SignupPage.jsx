@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
 
 export default function SignupPage() {
@@ -10,7 +11,7 @@ export default function SignupPage() {
                 <UsernamePasswordInputField tagPrefix={'signup-confirm-password'} labelName={'Confirm Password'} inputType={'password'} />
                 <button type="submit">Create Account</button>
             </form>
-            <p>Have an account? Log in</p>
+            <p>Have an account? <Link to="/login">Log in</Link></p>
         </>
     )
 }
