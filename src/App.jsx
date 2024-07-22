@@ -1,4 +1,4 @@
-import HomepageLoggedOut from "./components/pages/HomepageLoggedOutPage"
+import HomepageLoggedOutPage from "./components/pages/HomepageLoggedOutPage"
 import { Route, Routes } from "react-router-dom"
 
 export default function App() {
@@ -7,7 +7,7 @@ export default function App() {
 
     <>
       <Routes>
-        <Route path="/" element={<HomepageLoggedOut />}/>
+        <Route path="/" element={<HomepageLoggedOutPage />}/>
       </Routes>
     </>
   )
