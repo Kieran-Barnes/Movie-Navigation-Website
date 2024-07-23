@@ -41,7 +41,7 @@ const validateUserInput = (username, password, confirmationPassword, saveFunc) =
         return validatePasswordValue(password, confirmationPassword)
     } else {
         saveFunc(username, password)
-        return 'Signup Successful'
+        return 'PASS'
     }
 }
 
