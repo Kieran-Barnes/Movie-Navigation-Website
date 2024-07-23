@@ -36,7 +36,7 @@ function UserContextProvider({ children }) {
         if (validateLoginFunc(username, password, setUsername, setUserLoggedIn) === "PASS") {
             navigate('/')
         } 
-        validateLoginFunc(username, password, setUsername)
+        validateLoginFunc(username, password, setUsername, setUserLoggedIn)
         
     }
 
