@@ -1,4 +1,5 @@
 import { createContext, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const UserContext = createContext() 
 
@@ -13,6 +14,9 @@ function UserContextProvider({ children }) {
     const [signupPasswordValue, setSignupPasswordValue] = useState('')
     const [signupConfirmPasswordValue, setSignupConfirmPasswordValue] = useState('')
 
+    // navigation
+    const navigate = useNavigate()
+
     // signup validation (rest of code in ./context-components/signupValidation)
     const signupCreateAccountButton = (username, password, confirmationPassword, validateUserInputFunc) => {
         validateUserInputFunc(username, password, confirmationPassword, saveUser)
@@ -20,7 +24,11 @@ function UserContextProvider({ children }) {
 
     // login validation (rest of code in ./context-components/loginValidation)
     const loginButton = (username, password, validateLoginFunc) => {
+        if (validateLoginFunc(username, password, setUsername) === "PASS") {
+            navigate('/')
+        } 
         validateLoginFunc(username, password, setUsername)
+        
     }
 
     // save user values to localStorage
