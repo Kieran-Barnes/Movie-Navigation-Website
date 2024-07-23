@@ -4,6 +4,8 @@ const UserContext = createContext()
 
 function UserContextProvider({ children }) {
     const [userLoggedIn, setUserLoggedIn] = useState(false)
+    const [username, setUsername] = useState('')
+    console.log(username)
 
     // get input field values
     const [loginUsernameValue, setLoginUsernameValue] = useState('')
@@ -12,11 +14,6 @@ function UserContextProvider({ children }) {
     const [signupUsernameValue, setSignupUsernameValue] = useState('')
     const [signupPasswordValue, setSignupPasswordValue] = useState('')
     const [signupConfirmPasswordValue, setSignupConfirmPasswordValue] = useState('')
-
-    const loginContext = {
-        loginUsernameValue, setLoginUsernameValue,
-        loginPasswordValue, setLoginPasswordValue
-    }
 
     // signup validation (rest of code in ./context-components/signupValidation)
     const signupCreateAccountButton = (username, password, confirmationPassword, validateUserInputFunc) => {
@@ -28,17 +25,19 @@ function UserContextProvider({ children }) {
     // check if username does exist,
     // then check if password entered is the same as the key of the username value
 
-    const validateLoginInputs = (username, password) => {
+    const validateLoginInputs = (username, password, setUser) => {
         if (localStorage.getItem(username) == null) {
-            console.log("user doesn't exist")
             return "user doesn't exist"
         } else if (localStorage.getItem(username) !== password) {
-            console.log("password incorrect")
             return "password incorrect"
-        } else if (localStorage.getItem(username === password)) {
-            console.log("PASS")
+        } else if (localStorage.getItem(username) === password) {
+            setUser(username)
             return "PASS"
         }
+    }
+
+    const loginButton = (username, password) => {
+        validateLoginInputs(username, password, setUsername)
     }
 
 
@@ -52,6 +51,12 @@ function UserContextProvider({ children }) {
         signupPasswordValue, setSignupPasswordValue,
         signupConfirmPasswordValue, setSignupConfirmPasswordValue,
         signupCreateAccountButton
+    }
+
+    const loginContext = {
+        loginUsernameValue, setLoginUsernameValue,
+        loginPasswordValue, setLoginPasswordValue,
+        loginButton
     }
 
     const contextValues = {

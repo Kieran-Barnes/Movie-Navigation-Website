@@ -10,7 +10,13 @@ import BackToHomeButton from "../common/BackToHomeButton";
 import { UserContext } from "../../context/UserContext";
 
 export default function LoginPage() {
-    const { loginUsernameValue, setLoginUsernameValue, loginPasswordValue, setLoginPasswordValue } = useContext(UserContext)
+    const { 
+        loginUsernameValue, 
+        setLoginUsernameValue, 
+        loginPasswordValue, 
+        setLoginPasswordValue,
+        loginButton 
+    } = useContext(UserContext)
 
     return (
         <>
@@ -30,7 +36,15 @@ export default function LoginPage() {
                     inputValue={loginPasswordValue}
                     onChangeFunc={setLoginPasswordValue}
                 />
-                <button type="submit">Log in</button>
+                <button 
+                    type="submit"
+                    onClick={e => {
+                        e.preventDefault()
+                        loginButton(loginUsernameValue, loginPasswordValue)
+                    }}
+                >
+                    Log in
+                </button>
             </form>
             <p>Dont have an account? <Link to="/signup">Sign up</Link></p>
             <BackToHomeButton />
