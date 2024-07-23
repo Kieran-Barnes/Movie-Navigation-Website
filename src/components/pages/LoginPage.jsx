@@ -1,8 +1,13 @@
+// import external utilities
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+// import components
 import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
 import BackToHomeButton from "../common/BackToHomeButton";
+
+// import context
 import { UserContext } from "../../context/UserContext";
-import { useContext } from "react";
 
 export default function LoginPage() {
     const { loginUsernameValue, setLoginUsernameValue, loginPasswordValue, setLoginPasswordValue } = useContext(UserContext)

@@ -1,8 +1,13 @@
+// import external utilities
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+
+// import components
 import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
 import BackToHomeButton from "../common/BackToHomeButton";
+
+// import context
 import { UserContext } from "../../context/UserContext";
-import { useContext } from "react";
 
 export default function SignupPage() {
     const { signupUsernameValue, setSignupUsernameValue, signupPasswordValue, setSignupPasswordValue, signupConfirmPasswordValue, setSignupConfirmPasswordValue } = useContext(UserContext)
