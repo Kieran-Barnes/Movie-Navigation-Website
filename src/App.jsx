@@ -9,10 +9,10 @@ import { UserContext } from "./context/UserContext"
 import { useContext } from "react"
 
 export default function App() {
-  const { username } = useContext(UserContext)
+  const { userLoggedIn } = useContext(UserContext)
   return (
     <>
-      {username !== '' ? (
+      {userLoggedIn ? (
           <LoggedInRoutes />
         ) : (
           <LoggedOutRoutes />

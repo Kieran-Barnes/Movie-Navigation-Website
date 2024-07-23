@@ -5,6 +5,7 @@ const validateLoginInputs = (username, password, setUser) => {
         return "password incorrect"
     } else if (localStorage.getItem(username) === password) {
         setUser(username)
+        localStorage.setItem('userLoggedIn', true)
         return "PASS"
     }
 }

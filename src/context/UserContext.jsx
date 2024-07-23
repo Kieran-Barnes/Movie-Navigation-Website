@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 const UserContext = createContext() 
 
 function UserContextProvider({ children }) {
+    const [userLoggedIn, setUserLoggedIn] = useState(localStorage.getItem('userLoggedIn'))
     const [username, setUsername] = useState('')
 
     // get input field values
@@ -50,7 +51,7 @@ function UserContextProvider({ children }) {
     }
 
     const contextValues = {
-        username,
+        userLoggedIn,
         ...loginContext,
         ...signupContext
     }
