@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
+import BackToHomeButton from "../common/BackToHomeButton";
 
 export default function LoginPage() {
     return (
@@ -11,6 +12,8 @@ export default function LoginPage() {
                 <button type="submit">Log in</button>
             </form>
             <p>Dont have an account? <Link to="/signup">Sign up</Link></p>
+            <BackToHomeButton />
+            
         </>
     )
 }

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
+import BackToHomeButton from "../common/BackToHomeButton";
 
 export default function SignupPage() {
     return (
@@ -12,6 +13,7 @@ export default function SignupPage() {
                 <button type="submit">Create Account</button>
             </form>
             <p>Have an account? <Link to="/login">Log in</Link></p>
+            <BackToHomeButton />
         </>
     )
 }
