@@ -18,12 +18,6 @@ function UserContextProvider({ children }) {
         loginPasswordValue, setLoginPasswordValue
     }
 
-    const signupContext = { 
-        signupUsernameValue, setSignupUsernameValue,
-        signupPasswordValue, setSignupPasswordValue,
-        signupConfirmPasswordValue, setSignupConfirmPasswordValue
-    }
-
     // validate input values
 
     // signup
@@ -74,10 +68,21 @@ function UserContextProvider({ children }) {
         }
     }
 
+    const signupCreateAccountButton = (username, password, confirmationPassword) => {
+        validateUserInput(username, password, confirmationPassword)
+    }
+
     // save user values to localStorage
 
     const saveUser = (username, password) => {
         localStorage.setItem(username, password)
+    }
+
+    const signupContext = { 
+        signupUsernameValue, setSignupUsernameValue,
+        signupPasswordValue, setSignupPasswordValue,
+        signupConfirmPasswordValue, setSignupConfirmPasswordValue,
+        signupCreateAccountButton
     }
 
     const contextValues = {
