@@ -14,6 +14,10 @@ function UserContextProvider({ children }) {
     const [loginUsernameValue, setLoginUsernameValue] = useState('')
     const [loginPasswordValue, setLoginPasswordValue] = useState('')
 
+    const [signupUsernameValue, setSignupUsernameValue] = useState('')
+    const [signupPasswordValue, setSignupPasswordValue] = useState('')
+    const [signupConfirmPasswordValue, setSignupConfirmPasswordValue] = useState('')
+
     const contextValues = {
         userLoggedIn,
         setUserLoggedIn,
@@ -22,7 +26,16 @@ function UserContextProvider({ children }) {
         setLoginUsernameValue,
 
         loginPasswordValue,
-        setLoginPasswordValue
+        setLoginPasswordValue,
+
+        signupUsernameValue,
+        setSignupUsernameValue,
+
+        signupPasswordValue,
+        setSignupPasswordValue,
+
+        signupConfirmPasswordValue,
+        setSignupConfirmPasswordValue
     }
 
     return (
