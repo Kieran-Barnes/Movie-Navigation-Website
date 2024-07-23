@@ -5,9 +5,24 @@ const UserContext = createContext()
 function UserContextProvider({ children }) {
     const [userLoggedIn, setUserLoggedIn] = useState(false)
 
+    // create user
+        // get values from inputs
+        // validate values from inputs
+        // save it in local storage
+
+    // get values for inputs
+    const [loginUsernameValue, setLoginUsernameValue] = useState('')
+    const [loginPasswordValue, setLoginPasswordValue] = useState('')
+
     const contextValues = {
         userLoggedIn,
-        setUserLoggedIn
+        setUserLoggedIn,
+
+        loginUsernameValue,
+        setLoginUsernameValue,
+
+        loginPasswordValue,
+        setLoginPasswordValue
     }
 
     return (

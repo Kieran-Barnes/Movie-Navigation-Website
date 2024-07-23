@@ -6,7 +6,7 @@ export default function UsernamePasswordInputField({ inputType, labelName, tagPr
                 <input 
                     type={inputType} 
                     value={inputValue} 
-                    onChange={onChangeFunc} 
+                    onChange={e => onChangeFunc(e.target.value)} 
                     name={`${tagPrefix}-input-field`} 
                     id={`${tagPrefix}-input-field`}
                 />
