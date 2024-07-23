@@ -7,6 +7,7 @@ import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
 import BackToHomeButton from "../common/BackToHomeButton";
 
 // import context
+import { validateUserInput } from "../../context/context-components/signupValidation";  
 import { UserContext } from "../../context/UserContext";
 
 export default function SignupPage() {
@@ -49,7 +50,7 @@ export default function SignupPage() {
                     type="submit" 
                     onClick={e => {
                         e.preventDefault()
-                        signupCreateAccountButton(signupUsernameValue, signupPasswordValue, signupConfirmPasswordValue)
+                        signupCreateAccountButton(signupUsernameValue, signupPasswordValue, signupConfirmPasswordValue, validateUserInput)
                     }}
                 >
                     Create Account
