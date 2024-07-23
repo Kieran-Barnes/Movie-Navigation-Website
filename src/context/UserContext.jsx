@@ -23,8 +23,26 @@ function UserContextProvider({ children }) {
         validateUserInputFunc(username, password, confirmationPassword, saveUser)
     }
 
-    // save user values to localStorage
+    // login validation 
+    // check if username exists, if doesn't exist, throw error
+    // check if username does exist,
+    // then check if password entered is the same as the key of the username value
 
+    const validateLoginInputs = (username, password) => {
+        if (localStorage.getItem(username) == null) {
+            console.log("user doesn't exist")
+            return "user doesn't exist"
+        } else if (localStorage.getItem(username) !== password) {
+            console.log("password incorrect")
+            return "password incorrect"
+        } else if (localStorage.getItem(username === password)) {
+            console.log("PASS")
+            return "PASS"
+        }
+    }
+
+
+    // save user values to localStorage
     const saveUser = (username, password) => {
         localStorage.setItem(username, password)
     }
