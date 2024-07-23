@@ -3,7 +3,6 @@ import { createContext, useState } from "react"
 const UserContext = createContext() 
 
 function UserContextProvider({ children }) {
-    const [userLoggedIn, setUserLoggedIn] = useState(false)
     const [username, setUsername] = useState('')
     console.log(username)
 
@@ -60,8 +59,7 @@ function UserContextProvider({ children }) {
     }
 
     const contextValues = {
-        userLoggedIn,
-        setUserLoggedIn,
+        username,
         ...loginContext,
         ...signupContext
     }
