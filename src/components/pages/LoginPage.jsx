@@ -15,7 +15,7 @@ export default function LoginPage() {
     return (
         <>
             <h1>Login</h1>
-            <form>
+            <form method="POST">
                 <UsernamePasswordInputField 
                     tagPrefix={'login-username'} 
                     labelName={'Username'} 
