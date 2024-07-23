@@ -24,7 +24,7 @@ export default function SignupPage() {
     return (
         <>
             <h1>Sign up</h1>
-            <form>
+            <form method="POST">
                 <UsernamePasswordInputField 
                     tagPrefix={'signup-username'} 
                     labelName={'Username'} 
