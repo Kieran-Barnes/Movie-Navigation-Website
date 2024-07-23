@@ -50,6 +50,13 @@ function UserContextProvider({ children }) {
         localStorage.setItem(username, password)
     }
 
+    // logout functionality
+    const logout = () => {
+        setUsername('')
+        setUserLoggedIn(false)
+        localStorage.setItem('userLoggedIn', false)
+    }
+
     const signupContext = { 
         signupUsernameValue, setSignupUsernameValue,
         signupPasswordValue, setSignupPasswordValue,
@@ -66,7 +73,8 @@ function UserContextProvider({ children }) {
     const contextValues = {
         userLoggedIn,
         ...loginContext,
-        ...signupContext
+        ...signupContext,
+        logout
     }
 
     return (
