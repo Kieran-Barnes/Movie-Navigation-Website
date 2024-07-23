@@ -55,6 +55,7 @@ function UserContextProvider({ children }) {
         setUsername('')
         setUserLoggedIn(false)
         localStorage.setItem('userLoggedIn', false)
+        navigate('/')
     }
 
     const signupContext = { 
