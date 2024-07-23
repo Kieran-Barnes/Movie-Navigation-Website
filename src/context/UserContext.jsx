@@ -5,6 +5,7 @@ const UserContext = createContext()
 function UserContextProvider({ children }) {
     const [userLoggedIn, setUserLoggedIn] = useState(false)
 
+    // get input field values
     const [loginUsernameValue, setLoginUsernameValue] = useState('')
     const [loginPasswordValue, setLoginPasswordValue] = useState('')
 
@@ -21,6 +22,14 @@ function UserContextProvider({ children }) {
         signupUsernameValue, setSignupUsernameValue,
         signupPasswordValue, setSignupPasswordValue,
         signupConfirmPasswordValue, setSignupConfirmPasswordValue
+    }
+
+    // validate input values
+
+    // save user values to localStorage
+
+    const saveUser = (username, password) => {
+        localStorage.setItem(username, password)
     }
 
     const contextValues = {
