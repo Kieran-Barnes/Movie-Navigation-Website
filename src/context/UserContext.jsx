@@ -4,7 +4,6 @@ const UserContext = createContext()
 
 function UserContextProvider({ children }) {
     const [username, setUsername] = useState('')
-    console.log(username)
 
     // get input field values
     const [loginUsernameValue, setLoginUsernameValue] = useState('')
@@ -19,26 +18,10 @@ function UserContextProvider({ children }) {
         validateUserInputFunc(username, password, confirmationPassword, saveUser)
     }
 
-    // login validation 
-    // check if username exists, if doesn't exist, throw error
-    // check if username does exist,
-    // then check if password entered is the same as the key of the username value
-
-    const validateLoginInputs = (username, password, setUser) => {
-        if (localStorage.getItem(username) == null) {
-            return "user doesn't exist"
-        } else if (localStorage.getItem(username) !== password) {
-            return "password incorrect"
-        } else if (localStorage.getItem(username) === password) {
-            setUser(username)
-            return "PASS"
-        }
+    // login validation (rest of code in ./context-components/loginValidation)
+    const loginButton = (username, password, validateLoginFunc) => {
+        validateLoginFunc(username, password, setUsername)
     }
-
-    const loginButton = (username, password) => {
-        validateLoginInputs(username, password, setUsername)
-    }
-
 
     // save user values to localStorage
     const saveUser = (username, password) => {

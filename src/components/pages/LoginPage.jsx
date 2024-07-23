@@ -7,6 +7,7 @@ import UsernamePasswordInputField from "../common/UsernamePasswordInputField";
 import BackToHomeButton from "../common/BackToHomeButton";
 
 // import context
+import { validateLoginInputs } from "../../context/context-components/loginValidation";  
 import { UserContext } from "../../context/UserContext";
 
 export default function LoginPage() {
@@ -15,7 +16,7 @@ export default function LoginPage() {
         setLoginUsernameValue, 
         loginPasswordValue, 
         setLoginPasswordValue,
-        loginButton 
+        loginButton
     } = useContext(UserContext)
 
     return (
@@ -40,7 +41,7 @@ export default function LoginPage() {
                     type="submit"
                     onClick={e => {
                         e.preventDefault()
-                        loginButton(loginUsernameValue, loginPasswordValue)
+                        loginButton(loginUsernameValue, loginPasswordValue, validateLoginInputs)
                     }}
                 >
                     Log in
