@@ -1,4 +1,4 @@
-const validateLoginInputs = (username, password, setUser) => {
+const validateLoginInputs = (username, password, setUser, setUserLoggedInFunc) => {
     if (localStorage.getItem(username) == null) {
         return "user doesn't exist"
     } else if (localStorage.getItem(username) !== password) {
@@ -6,6 +6,7 @@ const validateLoginInputs = (username, password, setUser) => {
     } else if (localStorage.getItem(username) === password) {
         setUser(username)
         localStorage.setItem('userLoggedIn', true)
+        setUserLoggedInFunc(true)
         return "PASS"
     }
 }

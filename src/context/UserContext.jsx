@@ -33,7 +33,7 @@ function UserContextProvider({ children }) {
 
     // login validation (rest of code in ./context-components/loginValidation)
     const loginButton = (username, password, validateLoginFunc) => {
-        if (validateLoginFunc(username, password, setUsername) === "PASS") {
+        if (validateLoginFunc(username, password, setUsername, setUserLoggedIn) === "PASS") {
             navigate('/')
         } 
         validateLoginFunc(username, password, setUsername)
