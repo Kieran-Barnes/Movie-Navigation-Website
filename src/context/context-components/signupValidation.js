@@ -34,7 +34,7 @@ const validatePasswordValue = (password, confirmationPassword) => {
     return 'PASS'
 }
 
-const validateUserInput = (username, password, confirmationPassword, saveFunc, setUser, setUserLoggedInFunc) => {
+const validateUserInput = (username, password, confirmationPassword, saveFunc, setUser) => {
     if (validateUsernameValue(username) !== 'PASS') {
         return validateUsernameValue(username)
     } else if (validatePasswordValue(password, confirmationPassword) !== 'PASS') {
@@ -42,8 +42,6 @@ const validateUserInput = (username, password, confirmationPassword, saveFunc, s
     } else {
         saveFunc(username, password)
         setUser(username)
-        setUserLoggedInFunc(true)
-        localStorage.setItem('userLoggedIn', true)
         return 'PASS'
     }
 }

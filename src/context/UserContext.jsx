@@ -23,6 +23,16 @@ function UserContextProvider({ children }) {
         setUserLoggedIn(loggedIn)
     }, [])
 
+    useEffect(() => {
+        if (username === '') {
+            setUserLoggedIn(false)
+            localStorage.setItem('userLoggedIn', 'false')
+        } else {
+            setUserLoggedIn(true)
+            localStorage.setItem('userLoggedIn', 'true')
+        }
+    }, [username])
+
     // signup validation (rest of code in ./context-components/signupValidation)
     const signupCreateAccountButton = (username, password, confirmationPassword, validateUserInputFunc) => {
         if (validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername, setUserLoggedIn) === 'PASS') {
@@ -50,8 +60,6 @@ function UserContextProvider({ children }) {
     // logout functionality
     const logout = () => {
         setUsername('')
-        setUserLoggedIn(false) //
-        localStorage.setItem('userLoggedIn', false) //
         navigate('/')
     }
 
