@@ -24,22 +24,27 @@ function UserContextProvider({ children }) {
     }, [])
 
     useEffect(() => {
+        const storageValues = Object.keys(localStorage)
         if (username === '') {
             setUserLoggedIn(false)
             localStorage.setItem('userLoggedIn', 'false')
+        } else if (storageValues.includes(username)) {
+            setUserLoggedIn(true)
+            localStorage.setItem('userLoggedIn', 'true')
         } else {
             setUserLoggedIn(true)
+            localStorage.setItem(signupUsernameValue, signupPasswordValue)
             localStorage.setItem('userLoggedIn', 'true')
         }
     }, [username])
 
     // signup validation (rest of code in ./context-components/signupValidation)
     const signupCreateAccountButton = (username, password, confirmationPassword, validateUserInputFunc) => {
-        if (validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername) === 'PASS') {
-            validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername)
+        if (validateUserInputFunc(username, password, confirmationPassword, setUsername) === 'PASS') {
+            validateUserInputFunc(username, password, confirmationPassword, setUsername)
             navigate('/')
         }
-        validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername)
+        validateUserInputFunc(username, password, confirmationPassword, setUsername)
     }
 
     // login validation (rest of code in ./context-components/loginValidation)
@@ -53,9 +58,9 @@ function UserContextProvider({ children }) {
     }
 
     // save user values to localStorage
-    const saveUser = (username, password) => {
-        localStorage.setItem(username, password)
-    }
+    // const saveUser = (username, password) => {
+    //     localStorage.setItem(username, password)
+    // }
 
     // logout functionality
     const logout = () => {
