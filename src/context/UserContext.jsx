@@ -1,10 +1,10 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const UserContext = createContext() 
 
 function UserContextProvider({ children }) {
-    const [userLoggedIn, setUserLoggedIn] = useState(userLoggedInBoolean())
+    const [userLoggedIn, setUserLoggedIn] = useState(false)
     const [username, setUsername] = useState('')
 
     // get input field values
@@ -18,13 +18,10 @@ function UserContextProvider({ children }) {
     // navigation
     const navigate = useNavigate()
 
-    // initial state setter for 'userLoggedIn'
-    function userLoggedInBoolean() {
-        if (localStorage.getItem('userLoggedIn') === 'true') {
-            return true
-        }
-        return false
-    }
+    useEffect(() => {
+        const loggedIn = localStorage.getItem('userLoggedIn') === true
+        setUserLoggedIn(loggedIn)
+    }, [])
 
     // signup validation (rest of code in ./context-components/signupValidation)
     const signupCreateAccountButton = (username, password, confirmationPassword, validateUserInputFunc) => {
