@@ -73,6 +73,7 @@ function UserContextProvider({ children }) {
 
     const contextValues = {
         userLoggedIn,
+        username,
         ...loginContext,
         ...signupContext,
         logout
