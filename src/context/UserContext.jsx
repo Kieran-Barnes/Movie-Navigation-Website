@@ -35,20 +35,20 @@ function UserContextProvider({ children }) {
 
     // signup validation (rest of code in ./context-components/signupValidation)
     const signupCreateAccountButton = (username, password, confirmationPassword, validateUserInputFunc) => {
-        if (validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername, setUserLoggedIn) === 'PASS') {
-            validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername, setUserLoggedIn)
+        if (validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername) === 'PASS') {
+            validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername)
             navigate('/')
         }
-        validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername, setUserLoggedIn)
+        validateUserInputFunc(username, password, confirmationPassword, saveUser, setUsername)
     }
 
     // login validation (rest of code in ./context-components/loginValidation)
     const loginButton = (username, password, validateLoginFunc) => {
-        if (validateLoginFunc(username, password, setUsername, setUserLoggedIn) === "PASS") {
-            validateLoginFunc(username, password, setUsername, setUserLoggedIn)
+        if (validateLoginFunc(username, password, setUsername) === "PASS") {
+            validateLoginFunc(username, password, setUsername)
             navigate('/')
         } 
-        validateLoginFunc(username, password, setUsername, setUserLoggedIn)
+        validateLoginFunc(username, password, setUsername)
         
     }
 
