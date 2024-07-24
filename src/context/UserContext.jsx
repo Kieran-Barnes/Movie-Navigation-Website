@@ -19,7 +19,7 @@ function UserContextProvider({ children }) {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const loggedIn = localStorage.getItem('userLoggedIn') === true
+        const loggedIn = localStorage.getItem('userLoggedIn') === 'true'
         setUserLoggedIn(loggedIn)
     }, [])
 
@@ -50,8 +50,8 @@ function UserContextProvider({ children }) {
     // logout functionality
     const logout = () => {
         setUsername('')
-        setUserLoggedIn(false)
-        localStorage.setItem('userLoggedIn', false)
+        setUserLoggedIn(false) //
+        localStorage.setItem('userLoggedIn', false) //
         navigate('/')
     }
 
